@@ -26,6 +26,7 @@ const RealTimeData = () => {
   const [soundAlert, setSoundAlert] = useState(false);
 
   const soundAlarm = async () => {
+    audio.loop = true;
     await audio
       .play()
       .then()
