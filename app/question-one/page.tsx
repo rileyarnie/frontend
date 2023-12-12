@@ -27,7 +27,7 @@ const page = async () => {
   // const [data, setData] = useState()
 
   return (
-    <div className="bg-red-5000 px-4">
+    <div className="px-4">
       <NumericData
         altitude={data.altitude}
         isActionRequired={data.isActionRequired}
