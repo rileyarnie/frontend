@@ -3,6 +3,12 @@ import LineChart from "@/components/charts/LineChart";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import dynamic from "next/dynamic";
+
+// const DynamicComponentWithNoSSR = dynamic(
+//   () => import("../components/AudioComponent"),
+//   { ssr: false },
+// );
 
 type SpectrumData = {
   Velocity: number;
@@ -13,8 +19,12 @@ type SpectrumData = {
   IsActionRequired: boolean;
 };
 
-const audio = new Audio("/alertSound.mp3");
 const date = new Date();
+let audio: HTMLAudioElement;
+
+if (typeof window !== "undefined") {
+  audio = new Audio("/alertSound.mp3");
+}
 
 export type LineGraphType = { labels: string[]; data: number[] };
 
